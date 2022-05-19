@@ -46,13 +46,17 @@ class Contenedor {
     };
     getAll(){  
         fs.promises.readFile('./archivo.txt', 'utf-8') 
-        .then(contenido => console.log(contenido))
+        .then(contenido => {console.log(JSON.parse(contenido));;
+            return JSON.parse(contenido)})
         .catch(err => console.log('error: ' + err))
     };
-    deleteById(id){
-        fs.promises.appendFile('./archivo.txt', 'utf-8') 
-        .then(contenido => console.log(contenido))
-        .catch(err => console.log('error: ' + err))
+    deleteById(id){ 
+        console.log(this.productos); 
+        let prod = this.productos.filter(prodId => prodId.id !== id); 
+        this.save(prod)
+        console.log(prod); 
+        return prod
+       
     };
     deleteAll(){ fs.promises.unlink('./archivo.txt')};
 
@@ -78,12 +82,13 @@ const prod3 = {
 const gestor = new Contenedor('archivo.txt');
 
 (async () => {
-    await gestor.save(prod1);
-    await gestor.save(prod2); 
-    await gestor.save(prod3);
-    await gestor.getById(3);
-    await gestor.getAll();
-    //await gestor.deleteById(2); NO PUDE HACERLO ME RINDO XD
+     await gestor.save(prod1);
+     await gestor.save(prod2); 
+     await gestor.save(prod3);
+    // await gestor.getById(3);
+    //await gestor.getAll();
+    await gestor.deleteById(2);
+    await gestor.getAll(); 
     //await gestor.deleteAll() este si funciona
     
 })();
