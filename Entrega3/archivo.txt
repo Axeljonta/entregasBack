@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Iphone 13",
+    "price": 1300,
+    "link": "https://www.youtube.com/watch?v=mCdA4bJAGGk",
+    "id": 1
+  },
+  {
+    "title": "Iphone 12",
+    "price": 1100,
+    "link": "https://www.youtube.com/watch?v=mCdA4bJAGGk",
+    "id": 3
+  },
+  {
+    "title": "Iphone 11",
+    "price": 1000,
+    "link": "https://www.youtube.com/watch?v=mCdA4bJAGGk",
+    "id": 5
+  }
+]
